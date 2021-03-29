@@ -22,7 +22,7 @@ services:
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
-    App\Controller\:
+    App\Infra\Controller\:
         resource: '../src/Infra/Controller/'
         tags: ['controller.service_arguments']
 

@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+      - "443:443"
+    env_file:
+      - .env
+    volumes:
+      - .:/srv/sylius:rw,cached
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql/mysql-server:8.0.23-1.1.19
+    env_file:
+      - .env
+    volumes:
+      - mysql-data:/var/lib/mysql:rw
+    ports:
+      - "3306:3306"
+
+volumes:
+  mysql-data:

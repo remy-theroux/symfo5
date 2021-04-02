@@ -1,17 +1,27 @@
 version: '3.4'
 
 services:
-  web:
-    build: .
-    ports:
-      - "80:80"
-      - "443:443"
+  php-fpm:
+    build:
+      context: .
+      target: php-fpm
     env_file:
       - .env
     volumes:
-      - .:/srv/sylius:rw,cached
+      - .:/var/www
+
+  nginx:
+    build:
+      context: .
+      target: nginx
+    volumes:
+      - .:/var/www
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./logs:/var/log
     depends_on:
-      - mysql
+      - php-fpm
+    ports:
+      - "80:80"
 
   mysql:
     image: mysql/mysql-server:8.0.23-1.1.19

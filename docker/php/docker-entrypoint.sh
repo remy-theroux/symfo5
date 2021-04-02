@@ -8,6 +8,6 @@ fi
 
 mkdir -p var/cache var/log
 
-bin/console doctrine:migrations:migrate --no-interaction
+#bin/console doctrine:migrations:migrate --no-interaction
 
 exec docker-php-entrypoint "$@"

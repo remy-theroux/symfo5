@@ -11,7 +11,9 @@ FROM php:${PHP_VERSION}-fpm-alpine AS php-fpm
 #RUN apk add --no-cache $PHPIZE_DEPS; \
 #    pecl install xdebug-2.9.8; \
 #    docker-php-ext-enable xdebug
-#COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+RUN docker-php-ext-install pdo_mysql;
+
 #COPY docker/php/php.ini /usr/local/etc/php/php.ini
 #COPY docker/php/php-cli.ini /usr/local/etc/php/php-cli.ini
 #COPY docker/php/ext-geoip/GeoIP.dat /usr/share/GeoIP/GeoIP.dat

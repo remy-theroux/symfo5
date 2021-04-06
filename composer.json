@@ -36,8 +36,8 @@
         "symfony/yaml": "*"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.18",
         "phpstan/phpstan": "^0.12.83",
+        "squizlabs/php_codesniffer": "dev-master",
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
         "symfony/profiler-pack": "*",
@@ -71,11 +71,15 @@
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
-            "@auto-scripts"
+            "@auto-scripts",
+            "vendor/bin/phpcs --config-set installed_paths vendor/escapestudios/symfony2-coding-standard"
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ]
+        ],
+        "cs-check": "vendor/bin/phpcs --colors",
+        "cs-fix": "vendor/bin/phpcbf --colors",
+        "phpstan": "vendor/bin/phpstan analyse -l 8 ./src"
     },
     "conflict": {
         "symfony/symfony": "*"

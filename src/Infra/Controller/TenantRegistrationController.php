@@ -13,6 +13,7 @@ class TenantRegistrationController
      */
     public function register(): Response
     {
+        echo 'test';
         return new Response(
             '<html><body>Here is a tenant !</body></html>'
         );

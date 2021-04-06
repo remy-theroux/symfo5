@@ -10,9 +10,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TenantRegistrationController
 {
-    public function __construct(
-        private MessageBusInterface $messageBus
-    ) {
+    public function __construct(private MessageBusInterface $messageBus)
+    {
     }
 
     /**

@@ -20,6 +20,7 @@
         "symfony/http-client": "*",
         "symfony/intl": "*",
         "symfony/mailer": "*",
+        "symfony/messenger": "5.2.*",
         "symfony/mime": "*",
         "symfony/monolog-bundle": "^3.1",
         "symfony/notifier": "*",
@@ -35,12 +36,12 @@
         "symfony/yaml": "*"
     },
     "require-dev": {
-        "psalm/plugin-symfony": "^2.2",
+        "friendsofphp/php-cs-fixer": "^2.18",
+        "phpstan/phpstan": "^0.12.83",
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
         "symfony/profiler-pack": "*",
-        "symfony/test-pack": "*",
-        "vimeo/psalm": "^4.7"
+        "symfony/test-pack": "*"
     },
     "config": {
         "optimize-autoloader": true,
